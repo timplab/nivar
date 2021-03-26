@@ -160,3 +160,14 @@ if [ $1 == transcriptome_oldattempt_not_used ] ; then
     mkdir -p $datadir/annotation_final
     Rscript ~/Code/yfan_nanopore/nivar/paperfigs/annot_combine.R
 fi
+
+
+if [ $1 == submission_prep ] ; then
+    table2asn_GFF -J -c w -euk \
+		  -locus-tag-prefix JFU62 \
+		  -augustus-fix \
+		  -i $datadir/assembly_final/nivar.final.fasta \
+		  -f $datadir/annotation_final/nivar.final.gff \
+		  -o $datadir/annotation_final/nivar.final.sqn
+fi
+    

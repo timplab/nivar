@@ -214,10 +214,10 @@ nivpredtsv=file.path(datadir, 'patho', 'nivar.final.predgpi_hits.tsv')
 refpredtsv=file.path(datadir, 'patho', 'candida_nivariensis.predgpi_hits.tsv')
 cnames=c('gene', 'chr', 'ident', 'alignlen', 'mismatches', 'gap', 'qstart', 'qend', 'sstart', 'send', 'eval', 'store')
 nivpred=read_tsv(nivpredtsv, comment='#', col_names=cnames) %>%
-    mutate(genome='asm') %>%
-    rowwise() %>%
-    mutate(start=min(sstart, send)) %>%
-    mutate(end=max(sstart, send))
+    mutate(genome='asm') #%>%
+    #rowwise() %>%
+    #mutate(start=min(sstart, send)) %>%
+    #mutate(end=max(sstart, send))
 refpred=read_tsv(refpredtsv, comment='#', col_names=cnames) %>%
     mutate(genome='ref')
 allpred=rbind(nivpred, refpred) %>%

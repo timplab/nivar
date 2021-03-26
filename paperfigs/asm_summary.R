@@ -473,6 +473,6 @@ gapaligns=as_tibble(findOverlaps(gapgrange, alignranges)) %>%
 
 goodgaps=unique(c(as.data.frame(overlaps)$queryHits, gapaligns$queryHits))
     
-    
+overall_mulimap_rate=sum(align$mapq==0)/dim(align)[1]
 
 
