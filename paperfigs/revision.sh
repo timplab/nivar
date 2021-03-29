@@ -23,4 +23,9 @@ if [ $1 == repeat_check ] ; then
 	    $datadir/revision/removed.fa
 fi
 
-    
+if [ $1 == gffsub ] ; then
+    python3 ~/Code/utils/gff_add_genelevel.py \
+	    -i $datadir/annotation_final/nivar.final.gff \
+	    -o $datadir/annotation_final/nivar.final.submit.gff
+fi
+
